@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:46:28 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/05 16:22:46 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:56:54 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 		return (0);
 	split_argvs = ft_parse(argv);
 	if (!correct_input(split_argvs))
-		exit_error(NULL, NULL, NULL);
+		exit_error(NULL, NULL, split_argvs);
 	stack_b = NULL;
 	stack_a = fill_stack_numbers(split_argvs);
 	stack_size = get_stack_size(stack_a);
