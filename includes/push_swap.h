@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:43:03 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/04 19:44:02 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:49:18 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_a);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	do_ra_sa_rra(t_stack **stack);
+void	do_sa_rra(t_stack **stack);
 
 /* UTILS */
 

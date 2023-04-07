@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 22:27:57 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/05 16:23:04 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:49:37 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ static void	sort_3(t_stack **stack_a)
 	if (is_sorted(*stack_a))
 		return ;
 	if ((*stack_a)->index == min && (*stack_a)->next->index != next_min)
-	{
-		ra(stack_a);
-		sa(stack_a);
-		rra(stack_a);
-	}
+		do_ra_sa_rra(stack_a);
 	else if ((*stack_a)->index == next_min)
 	{
 		if ((*stack_a)->next->index == min)
@@ -53,10 +49,7 @@ static void	sort_3(t_stack **stack_a)
 		if ((*stack_a)->next->index == min)
 			ra(stack_a);
 		else
-		{
-			sa(stack_a);
-			rra(stack_a);
-		}
+			do_sa_rra(stack_a);
 	}
 }
 

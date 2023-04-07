@@ -9,7 +9,7 @@ INCLUDES = includes/push_swap.h
 ### SOURCES ###
 
 SRCS_DIR = srcs/
-SRCS_FILES = main.c utils.c input_check.c init.c stack.c push.c reverse_rotate.c rotate.c swap.c simple_sort.c radix_sort.c ft_parse.c
+SRCS_FILES = main.c utils.c utils2.c input_check.c init.c stack.c push.c reverse_rotate.c rotate.c swap.c simple_sort.c radix_sort.c ft_parse.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS = ${SRCS:.c=.o}
 
