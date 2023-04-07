@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:41:49 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/05 16:22:33 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:56:52 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ char	*ft_strjoin_all(char **argv)
 	char	*joined;
 	size_t	size;
 	int		i;
-	int		j;
-	int		s;
+	size_t	j;
+	size_t	s;
 
 	i = 1;
 	s = 0;
 	size = 0;
 	while (argv[i])
-		size += ft_strlen(argv[i++]);
-	joined = malloc((size + 1) * sizeof(char));
+		size += ft_strlen(argv[i++]) + 1;
+	joined = malloc(size * sizeof(char));
 	if (!joined)
 		return (NULL);
 	i = 0;

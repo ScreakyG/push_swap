@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:56:07 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/05 16:22:41 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:09:27 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int	doublons(char **argv)
 	unsigned int	i;
 	unsigned int	j;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
-		j = 1;
+		j = 0;
 		while (argv[j])
 		{
 			if (j != i && nb_cmp(argv[i], argv[j]) == 0)
@@ -95,7 +95,7 @@ int	correct_input(char **argv)
 	int	nb_zeros;
 
 	nb_zeros = 0;
-	i = 1;
+	i = 0;
 	if (!argv)
 		return (0);
 	while (argv[i])
