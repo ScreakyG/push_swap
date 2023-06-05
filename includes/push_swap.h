@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:43:03 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/07 11:49:18 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:24:21 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ typedef struct s_stack
 {
 	int				nb;
 	int				index;
+	int				target_position;
+	int				position;
+	int				cost_b;
+	int				cost_a;
+	int				cost_total;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -47,9 +52,8 @@ void	free_stack(t_stack **stack);
 
 /* SORTING */
 
-void	simple_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
-void	radix_sort(t_stack **stack_a, t_stack **stack_b);
-void	sort_5(t_stack **stack_a, t_stack **stack_b);
+void	simple_sort(t_stack **stack_a, int stack_size);
+void	sort(t_stack **stack_a, t_stack **stack_b);
 
 /* INSTRUCTIONS */
 
@@ -71,6 +75,22 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	do_ra_sa_rra(t_stack **stack);
 void	do_sa_rra(t_stack **stack);
 
+/* POSITION */
+
+void	get_positions(t_stack **stack);
+int		get_target(t_stack **stack_a, int b_index);
+void	get_target_position(t_stack **stack_a, t_stack **stack_b);
+int		get_lowest_index_position(t_stack **stack);
+
+/* OPERATIONS */
+
+void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+void	do_ope(int cost_a, int cost_b, t_stack **stack_a, t_stack **stack_b);
+void	rotates(int *cost_a, int *cost_b, t_stack **stack_a, t_stack **stack_b);
+void	rev_rotates(int *cost_a, int *cost_b, t_stack **stack_a, t_stack **stack_b);
+void	rotates_a(t_stack **stack_a, int *cost_a);
+void	rotates_b(t_stack **stack_b, int *cost_b);
+
 /* UTILS */
 
 void	exit_error(t_stack **stack_a, t_stack **stack_b, char **splited_args);
@@ -78,6 +98,7 @@ long	ft_atoi(char *str);
 void	ft_putstr(char *str);
 int		is_sorted(t_stack *stack_a);
 int		get_distance(t_stack *stack_a, int index_min);
+int		abs(int nbr);
 
 char	**ft_parse(char **argv);
 char	*ft_strjoin_all(char **argv);
@@ -86,5 +107,24 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 void	ft_free_strs(char **split_args);
+
+/* BONUS CHERCKER */
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char	*get_next_line(int fd);
+void	ft_free(char **str1, char **str2, char **str3);
+int		ft_strchr(char *str, char c);
+char	*ft_strdup(char *src);
+char	*ft_join_str(char *s1, char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/* REMAKE FUNCTIONS */
+
+void	push_all_save_three(t_stack **stack_a, t_stack **stack_b);
+void	get_costs(t_stack **stack_a, t_stack **stack_b);
+void	shift_stack(t_stack **stack_a);
 
 #endif

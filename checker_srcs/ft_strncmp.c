@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 11:42:09 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/06/05 11:48:58 by parallels        ###   ########.fr       */
+/*   Created: 2022/11/10 17:42:33 by francois          #+#    #+#             */
+/*   Updated: 2023/06/01 12:35:15 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	do_ra_sa_rra(t_stack **stack)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	ra(stack);
-	sa(stack);
-	rra(stack);
-}
+	size_t	i;
 
-void	do_sa_rra(t_stack **stack)
-{
-	sa(stack);
-	rra(stack);
-}
-
-int	abs(int nbr)
-{
-	if (nbr < 0)
-		return (nbr * -1);
-	return (nbr);
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < n - 1 && s1[i] == s2[i] && s1[i] != '\0')
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

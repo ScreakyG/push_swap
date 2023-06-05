@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:46:28 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/07 14:56:54 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:11:24 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
-	if (stack_size <= 5 && !is_sorted(*stack_a))
-		simple_sort(stack_a, stack_b, stack_size);
-	else if (stack_size > 5 && !is_sorted(*stack_a))
-		radix_sort(stack_a, stack_b);
+	if (stack_size <= 3 && !is_sorted(*stack_a))
+		simple_sort(stack_a, stack_size);
+	else if (stack_size > 3 && !is_sorted(*stack_a))
+		sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
