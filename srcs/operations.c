@@ -6,7 +6,7 @@
 /*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:46:52 by parallels         #+#    #+#             */
-/*   Updated: 2023/06/05 12:27:21 by parallels        ###   ########.fr       */
+/*   Updated: 2023/06/06 12:22:12 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	do_ope(int cost_a, int cost_b, t_stack **stack_a, t_stack **stack_b)
 {
 	if (cost_a < 0 && cost_b < 0)
-		rev_rotates(&cost_a, &cost_b, stack_a, stack_b);
+		r_rotate(&cost_a, &cost_b, stack_a, stack_b);
 	else if (cost_a > 0 && cost_b > 0)
 		rotates(&cost_a, &cost_b, stack_a, stack_b);
 	rotates_a(stack_a, &cost_a);
@@ -33,13 +33,13 @@ void	rotates(int *cost_a, int *cost_b, t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	rev_rotates(int *cost_a, int *cost_b, t_stack **stack_a, t_stack **stack_b)
+void	r_rotate(int *costa, int *costb, t_stack **stack_a, t_stack **stack_b)
 {
-	while (*cost_a < 0 && *cost_b < 0)
+	while (*costa < 0 && *costb < 0)
 	{
 		rrr(stack_a, stack_b);
-		(*cost_a)++;
-		(*cost_b)++;
+		(*costa)++;
+		(*costb)++;
 	}
 }
 

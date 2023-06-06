@@ -6,7 +6,7 @@
 /*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:43:03 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/06/05 12:24:21 by parallels        ###   ########.fr       */
+/*   Updated: 2023/06/06 15:09:23 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	do_sa_rra(t_stack **stack);
 /* POSITION */
 
 void	get_positions(t_stack **stack);
-int		get_target(t_stack **stack_a, int b_index);
+int		get_target(t_stack **stack_a, int b_idx, int cible_idx, int cible_pos);
 void	get_target_position(t_stack **stack_a, t_stack **stack_b);
 int		get_lowest_index_position(t_stack **stack);
 
@@ -87,7 +87,7 @@ int		get_lowest_index_position(t_stack **stack);
 void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 void	do_ope(int cost_a, int cost_b, t_stack **stack_a, t_stack **stack_b);
 void	rotates(int *cost_a, int *cost_b, t_stack **stack_a, t_stack **stack_b);
-void	rev_rotates(int *cost_a, int *cost_b, t_stack **stack_a, t_stack **stack_b);
+void	r_rotate(int *costa, int *costb, t_stack **stack_a, t_stack **stack_b);
 void	rotates_a(t_stack **stack_a, int *cost_a);
 void	rotates_b(t_stack **stack_b, int *cost_b);
 

@@ -6,7 +6,7 @@
 /*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:55:32 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/06/05 12:21:03 by parallels        ###   ########.fr       */
+/*   Updated: 2023/06/06 15:10:36 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,37 +49,33 @@ void	get_positions(t_stack **stack)
 	}
 }
 
-int	get_target(t_stack **stack_a, int b_index)
+int	get_target(t_stack **stack_a, int b_index, int cible_idx, int cible_pos)
 {
-	int		target_position;
-	int		target_index;
 	t_stack	*tmp_a;
 
-	target_position = 0;
-	tmp_a = *stack_a;
-	target_index = INT_MAX;
-	while (tmp_a)
-	{
-		if (tmp_a->index > b_index && tmp_a->index < target_index)
-		{
-			target_position = tmp_a->position;
-			target_index = tmp_a->index;
-		}
-		tmp_a = tmp_a->next;
-	}
-	if (target_index != INT_MAX)
-		return (target_position);
 	tmp_a = *stack_a;
 	while (tmp_a)
 	{
-		if (tmp_a->index < target_index)
+		if (tmp_a->index > b_index && tmp_a->index < cible_idx)
 		{
-			target_index = tmp_a->index;
-			target_position = tmp_a->position;
+			cible_pos = tmp_a->position;
+			cible_idx = tmp_a->index;
 		}
 		tmp_a = tmp_a->next;
 	}
-	return (target_position);
+	if (cible_idx != INT_MAX)
+		return (cible_pos);
+	tmp_a = *stack_a;
+	while (tmp_a)
+	{
+		if (tmp_a->index < cible_idx)
+		{
+			cible_idx = tmp_a->index;
+			cible_pos = tmp_a->position;
+		}
+		tmp_a = tmp_a->next;
+	}
+	return (cible_pos);
 }
 
 void	get_target_position(t_stack **stack_a, t_stack **stack_b)
@@ -93,7 +89,7 @@ void	get_target_position(t_stack **stack_a, t_stack **stack_b)
 	target_position = 0;
 	while (tmp_b)
 	{
-		target_position = get_target(stack_a, tmp_b->index);
+		target_position = get_target(stack_a, tmp_b->index, INT_MAX, 0);
 		tmp_b->target_position = target_position;
 		tmp_b = tmp_b->next;
 	}
