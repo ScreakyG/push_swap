@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 01:41:58 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/04/05 16:22:38 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:30:40 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	index_numbers(t_stack *stack_a, int stack_size)
 		while (tmp)
 		{
 			if (tmp->nb == INT_MIN && tmp->index == 0)
-				tmp->index = 1;
+				tmp->index = 0;
 			if (tmp->nb > highest_number && tmp->index == 0)
 			{
 				highest_number = tmp->nb;

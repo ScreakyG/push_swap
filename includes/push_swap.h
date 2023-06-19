@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:43:03 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/06/06 15:09:23 by parallels        ###   ########.fr       */
+/*   Updated: 2023/06/18 23:38:34 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	free_stack(t_stack **stack);
 /* SORTING */
 
 void	simple_sort(t_stack **stack_a, int stack_size);
-void	sort(t_stack **stack_a, t_stack **stack_b);
+void	insertion_sort(t_stack **stack_a, t_stack **stack_b);
 
 /* INSTRUCTIONS */
 
@@ -125,6 +125,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 void	push_all_save_three(t_stack **stack_a, t_stack **stack_b);
 void	get_costs(t_stack **stack_a, t_stack **stack_b);
-void	shift_stack(t_stack **stack_a);
+void	fix_stack(t_stack **stack_a);
 
 #endif

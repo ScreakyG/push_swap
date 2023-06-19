@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parallels <parallels@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:36:51 by parallels         #+#    #+#             */
-/*   Updated: 2023/06/05 12:23:46 by parallels        ###   ########.fr       */
+/*   Updated: 2023/06/18 23:38:08 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b)
 	do_ope(cost_a, cost_b, stack_a, stack_b);
 }
 
-void	sort(t_stack **stack_a, t_stack **stack_b)
+void	insertion_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
 	simple_sort(stack_a, 3);
@@ -95,10 +95,10 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		do_cheapest_move(stack_a, stack_b);
 	}
 	if (!is_sorted(*stack_a))
-		shift_stack(stack_a);
+		fix_stack(stack_a);
 }
 
-void	shift_stack(t_stack **stack_a)
+void	fix_stack(t_stack **stack_a)
 {
 	int	lowest_pos;
 	int	stack_size;
